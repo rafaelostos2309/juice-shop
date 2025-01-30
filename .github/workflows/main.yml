@@ -1,0 +1,13 @@
+name: "CI/CD Pipelin2e"
+on:
+  push: 
+    branches:
+      -master
+jobs:
+  lint:
+    runs-on: self-hosted
+    steps:
+    - name: Authenticate and Scan DVWA image with Snyk
+      shell: powershell
+      run: |
+        echo "ola"
