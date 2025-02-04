@@ -1,23 +1,14 @@
-name: Hola Mundo en Windows (Self-Hosted)
-
+name: “Self-Hosted CI”
+run-name: "Compilación en Servidor Linux "
 on:
-  push:  # Se ejecuta cuando hagas un push al repositorio
-  pull_request:  # También se ejecutará en pull requests
-
+  push:
+    branches:
+      - master
 jobs:
-  test-runner:
-    runs-on: self-hosted  # Usa el runner autoalojado en Windows
+  build:
+    runs-on: self-hosted # Se ejecuta en el runner self-hosted
     steps:
-      - name: Checkout del código
-        uses: actions/checkout@v3
-
-      - name: Verificar el sistema operativo
-        run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
-
-      - name: Mostrar mensaje en consola
-        run: echo "¡Hola Mundo desde GitHub Actions en Windows!"
-
-      - name: Listar archivos en el directorio
-        run: dir
+        - name: Checkout del código
+          uses: actions/checkout@v4
 
 
